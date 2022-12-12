@@ -7,6 +7,7 @@ from tensorflow.keras.models import load_model
 from flask import Flask , render_template  , request , send_file
 from tensorflow.keras.preprocessing.image import load_img , img_to_array
 
+#Flask
 app = Flask(__name__)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 model = load_model(os.path.join(BASE_DIR , 'model2.hdf5'))
@@ -19,7 +20,7 @@ def allowed_file(filename):
 
 classes = ['airplane' ,'automobile', 'bird' , 'cat' , 'deer' ,'dog' ,'frog', 'horse' ,'ship' ,'truck']
 
-
+#dự đoán
 def predict(filename , model):
     img = load_img(filename , target_size = (32 , 32))
     img = img_to_array(img)
